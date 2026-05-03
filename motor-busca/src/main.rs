@@ -2,6 +2,7 @@ mod varredura;
 mod leitor;
 mod indexador;
 mod exportador;
+mod busca;
 use std::env;
 use std::path::PathBuf;
 use varredura::listar_arquivos;
@@ -61,6 +62,10 @@ async fn main() {
                 let arquivos = &indice[palavra];
                 println!("{} => {}", palavra, arquivos.join(", "));
             }
+
+            println!("\n--- Teste de Busca ---");
+            let resultados = busca::buscar("teste", "../compartilhado/saida/index.json");
+            println!("Busca 'teste': {:?}", resultados);
         }
     }
 }
