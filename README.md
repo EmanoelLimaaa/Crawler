@@ -1,4 +1,4 @@
-# English
+# 🇺🇸 English
 
 # 🔎 Hybrid Search Engine: Rust & Python
 
@@ -84,7 +84,7 @@ This project was developed as a technical challenge to explore language interope
 
 Developed by: [Emanoel Lima](https://github.com//EmanoelLimaaa) & [Ramon Leandro](https://github.com/Ramon-Leandro)
 
-# Português
+# 🇧🇷 Português
 
 # 🔎 Motor de Busca Híbrido: Rust & Python
 
