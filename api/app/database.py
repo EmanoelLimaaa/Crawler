@@ -9,23 +9,21 @@ def ler_dados_do_rust():
     
     lista_arquivos = []
 
-    # Verificr se o arquivo do Rust já existe para não dar erro
+    # Proteção: Se o arquivo não existir, a API não trava
     if not os.path.exists(ARQUIVO_INDICE):
-        return [{"arquivo": "Aviso", "local": "O motor em Rust ainda não gerou o índice.", "tags": ""}]
+        return [{"arquivo": "Aviso", "local": "Aguardando motor Rust...", "tags": ""}]
 
-    # Abrir o arquivo para leitura ('r' de read)
+    # Leitura eficiente linha por linha
     with open(ARQUIVO_INDICE, "r", encoding="utf-8") as arquivo:
         for linha in arquivo:
-
-            linha_limpa = linha.strip()
+            caminho_completo = linha.strip()
             
-            # Se a linha não estiver vazia, adicionar ao dados
-            if linha_limpa:
-                # Criando um formato de "objeto" para cada linha encontrada
+            if caminho_completo:
+                # Transforma o caminho bruto em um objeto estruturado
                 item = {
-                    "arquivo": os.path.basename(linha_limpa), # Pega só o nome do arquivo
-                    "local": linha_limpa,                     # O caminho completo
-                    "tags": "encontrado pelo rust"            # Uma etiqueta simples
+                    "arquivo": os.path.basename(caminho_completo),
+                    "local": caminho_completo,
+                    "tags": "rust_engine"
                 }
                 lista_arquivos.append(item)
                 
