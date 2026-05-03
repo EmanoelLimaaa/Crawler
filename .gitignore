@@ -1,0 +1,30 @@
+# Rust
+motor-busca/target/
+**/target/
+
+# VS Code settings
+.vscode/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+.venv/
+ENV/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor temporary files
+*~
+*.swp
+*.swo
+*.tmp
+*.log
+
+# JetBrains IDE
+.idea/
