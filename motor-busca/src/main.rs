@@ -1,6 +1,7 @@
 mod varredura;
 mod leitor;
 mod indexador;
+mod exportador;
 use std::env;
 use std::path::PathBuf;
 use varredura::listar_arquivos;
@@ -39,6 +40,12 @@ async fn main() {
             println!("Nenhum arquivo .txt ou .md encontrado.");
         } else {
             let indice = criar_indice(conteudos.clone());
+
+            if let Err(e) = exportador::exportar_indice(&indice) {
+                eprintln!("Erro ao exportar índice: {}", e);
+            } else {
+                println!("Índice exportado para ../compartilhado/saida/index.json");
+            }
 
             println!("Arquivos lidos: {}\n", conteudos.len());
             for (arquivo, conteudo) in &conteudos {
