@@ -1,7 +1,9 @@
 mod varredura;
+mod leitor;
 use std::env;
 use std::path::PathBuf;
 use varredura::listar_arquivos;
+use leitor::ler_arquivos;
 
 #[tokio::main]
 async fn main() {
@@ -26,6 +28,20 @@ async fn main() {
         println!("Arquivos em {} ({}):", path, arquivos.len());
         for arquivo in &arquivos {
             println!("  - {}", arquivo);
+        }
+        
+        println!("\n--- Lendo arquivos ---");
+        let conteudos = ler_arquivos(arquivos);
+        
+        if conteudos.is_empty() {
+            println!("Nenhum arquivo .txt ou .md encontrado.");
+        } else {
+            println!("Arquivos lidos: {}\n", conteudos.len());
+            for (arquivo, conteudo) in conteudos {
+                println!("📄 {}", arquivo);
+                println!("{}",  "─".repeat(60));
+                println!("{}\n", conteudo);
+            }
         }
     }
 }
