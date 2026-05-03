@@ -1,7 +1,11 @@
 mod varredura;
+mod leitor;
+mod indexador;
 use std::env;
 use std::path::PathBuf;
 use varredura::listar_arquivos;
+use leitor::ler_arquivos;
+use indexador::criar_indice;
 
 #[tokio::main]
 async fn main() {
@@ -26,6 +30,30 @@ async fn main() {
         println!("Arquivos em {} ({}):", path, arquivos.len());
         for arquivo in &arquivos {
             println!("  - {}", arquivo);
+        }
+        
+        println!("\n--- Lendo arquivos ---");
+        let conteudos = ler_arquivos(arquivos);
+        
+        if conteudos.is_empty() {
+            println!("Nenhum arquivo .txt ou .md encontrado.");
+        } else {
+            let indice = criar_indice(conteudos.clone());
+
+            println!("Arquivos lidos: {}\n", conteudos.len());
+            for (arquivo, conteudo) in &conteudos {
+                println!("📄 {}", arquivo);
+                println!("{}", "─".repeat(60));
+                println!("{}\n", conteudo);
+            }
+
+            println!("--- Índice invertido ---");
+            let mut palavras: Vec<_> = indice.keys().collect();
+            palavras.sort();
+            for palavra in palavras {
+                let arquivos = &indice[palavra];
+                println!("{} => {}", palavra, arquivos.join(", "));
+            }
         }
     }
 }
