@@ -1,16 +1,21 @@
 from app.database import ler_dados_do_rust
 
 def buscar_no_indice(termo: str):
-    # Recebe o termo de busca, solicita os dados ao database e realiza o filtro por nome de arquivo.
-
-    dados_brutos = ler_dados_do_rust()
+    indice_completo = ler_dados_do_rust()
+    termo_busca = termo.lower() # O Rust salva tudo em minúsculo[cite: 2]
+    
     resultados = []
-    
-    # Normaliza a busca para minúsculo para evitar erros de digitação
-    termo_busca = termo.lower()
-    
-    for item in dados_brutos:
-        if termo_busca in item["arquivo"].lower():
-            resultados.append(item)
+
+    # Se a palavra existe no índice que o Rust criou
+    if termo_busca in indice_completo:
+        caminhos = indice_completo[termo_busca]
+        
+        for caminho in caminhos:
+            import os
+            resultados.append({
+                "arquivo": os.path.basename(caminho),
+                "local": caminho,
+                "tags": "indexado_pelo_rust"
+            })
             
     return resultados

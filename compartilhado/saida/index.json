@@ -9,14 +9,35 @@
   "3": [
     "../compartilhado/dados\\teste2.md"
   ],
-  "testar": [
+  "em": [
+    "../compartilhado/dados\\teste1.txt"
+  ],
+  "1": [
     "../compartilhado/dados\\teste2.md"
   ],
   "formato": [
     "../compartilhado/dados\\teste1.txt"
   ],
-  "arquivo": [
+  "testar": [
+    "../compartilhado/dados\\teste2.md"
+  ],
+  "para": [
+    "../compartilhado/dados\\teste2.md"
+  ],
+  "1": [
+    "../compartilhado/dados\\teste2.md"
+  ],
+  "de": [
     "../compartilhado/dados\\teste1.txt",
+    "../compartilhado/dados\\teste2.md"
+  ],
+  "o": [
+    "../compartilhado/dados\\teste2.md"
+  ],
+  "2": [
+    "../compartilhado/dados\\teste2.md"
+  ],
+  "fim": [
     "../compartilhado/dados\\teste2.md"
   ],
   "txt": [
@@ -25,35 +46,17 @@
   "do": [
     "../compartilhado/dados\\teste2.md"
   ],
-  "filtro": [
-    "../compartilhado/dados\\teste2.md"
-  ],
-  "markdown": [
-    "../compartilhado/dados\\teste2.md"
-  ],
-  "1": [
-    "../compartilhado/dados\\teste2.md"
-  ],
-  "fim": [
-    "../compartilhado/dados\\teste2.md"
-  ],
-  "o": [
-    "../compartilhado/dados\\teste2.md"
-  ],
-  "item": [
-    "../compartilhado/dados\\teste2.md"
-  ],
-  "2": [
+  "teste": [
+    "../compartilhado/dados\\teste1.txt",
     "../compartilhado/dados\\teste2.md"
   ],
   "md": [
     "../compartilhado/dados\\teste2.md"
   ],
-  "teste": [
-    "../compartilhado/dados\\teste1.txt",
+  "3": [
     "../compartilhado/dados\\teste2.md"
   ],
-  "em": [
-    "../compartilhado/dados\\teste1.txt"
+  "fim": [
+    "../compartilhado/dados\\teste2.md"
   ]
 }
