@@ -10,4 +10,4 @@ app.include_router(busca.router)
 # Criando uma rota raiz apenas para testar se o servidor está ligado
 @app.get("/")
 def home():
-    return {"mensagem": "API de Busca Online. Use /docs para testar."}
+    return {"mensagem": "API Online"}
